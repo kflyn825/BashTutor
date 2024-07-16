@@ -15,3 +15,16 @@
 # l.*	    matches lazy dog
 # l.*y	    matches lazy
 # the.*	    matches the whole sentence
+
+
+
+t="MULTI: primary virtual IP for xyz/x.x.x.x:44595: 10.0.0.12"
+searchstring="IP for "
+
+rest=${t#*$searchstring}
+echo $rest
+echo $(( ${#t} - ${#rest} - ${#searchstring} ))
+
+prefix=${t%%$searchstring*}
+echo ${#prefix}
+echo prefix is $prefix
